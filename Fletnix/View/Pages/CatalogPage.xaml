@@ -26,6 +26,17 @@
                 Click="ButtonAddCatalogItem_Click"
                 Content="+"
                 FontSize="36" />
+        
+        <StackPanel HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+            <TextBlock Text="Welkom  "
+                       Foreground="LightGray"
+                       FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left"
+                       Foreground="LightGray"
+                       FontSize="16"
+                       Text="{Binding Userprofile.ProfileName}" PreviewMouseDown="TextBlock_PreviewMouseDown"/>
+        </StackPanel>
 
         <ListView Grid.Row="1"
                   Padding="20"

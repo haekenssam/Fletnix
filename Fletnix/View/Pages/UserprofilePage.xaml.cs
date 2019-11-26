@@ -14,19 +14,13 @@ using System.Windows.Shapes;
 namespace Fletnix.View.Pages
 {
     /// <summary>
-    /// Interaction logic for CatalogPage.xaml
+    /// Interaction logic for UserprofilePage.xaml
     /// </summary>
-    public partial class CatalogPage : Page
+    public partial class UserprofilePage : Page
     {
-        public CatalogPage()
+        public UserprofilePage()
         {
             InitializeComponent();
-        }
-
-        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var frame = FindParentOfType<Frame>(this);
-            frame.Navigate(new CatalogItemDetailPage());
         }
 
         public T FindParentOfType<T>(DependencyObject child) where T : DependencyObject
@@ -42,14 +36,15 @@ namespace Fletnix.View.Pages
             return null;
         }
 
-        private void ButtonAddCatalogItem_Click(object sender, RoutedEventArgs e)
+        private void ButtonAddUserprofile_Click(object sender, RoutedEventArgs e)
         {
-            new CreateCatalogItemWindow().ShowDialog();
+            new CreateUserprofileWindow().ShowDialog();
         }
 
-        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            new CreateCatalogItemWindow().ShowDialog();
+            var frame = FindParentOfType<Frame>(this);
+            frame.Navigate(new CatalogPage());
         }
     }
 }

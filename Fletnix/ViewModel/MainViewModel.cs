@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Fletnix.Messages;
@@ -14,7 +15,8 @@ namespace Fletnix.ViewModel
         //readonly: kan enkel geinstantieerd worden vanuit constructor
         private readonly ICatalogService _catalogService;
         private CatalogItem _selectedCatalogItem;
-        
+
+        public Userprofile Userprofile { get; set; }
         public CatalogItem SelectedCatalogItem
         {
             get => _selectedCatalogItem;
@@ -26,8 +28,6 @@ namespace Fletnix.ViewModel
         }
 
         public ObservableCollection<CatalogItem> Catalog { get; set; }
-
-        
 
         // field krijgt pas instantie als property voor de eerste keer aangeroepen word
         //public ICommand CounterClickCommand =>
@@ -61,6 +61,12 @@ namespace Fletnix.ViewModel
             Catalog = new ObservableCollection<CatalogItem>(catalog);
 
             MessengerInstance.Register<CatalogItemCreatedMessage>(this, OnCatalogItemCreated);
+            MessengerInstance.Register<UserprofileDetailsMessage>(this, OnUserprofileReceived);
+        }
+
+        private void OnUserprofileReceived(UserprofileDetailsMessage obj)
+        {
+            Userprofile = obj.Userprofile;
         }
 
         private void OnCatalogItemCreated(CatalogItemCreatedMessage message)
