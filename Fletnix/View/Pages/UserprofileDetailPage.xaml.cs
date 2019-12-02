@@ -22,5 +22,24 @@ namespace Fletnix.View.Pages
         {
             InitializeComponent();
         }
+
+        public T FindParentOfType<T>(DependencyObject child) where T : DependencyObject
+        {
+            DependencyObject parentDepObj = child;
+            do
+            {
+                parentDepObj = VisualTreeHelper.GetParent(parentDepObj);
+                T parent = parentDepObj as T;
+                if (parent != null) return parent;
+            }
+            while (parentDepObj != null);
+            return null;
+        }
+
+        private void ButtonCancelChanges_Click(object sender, RoutedEventArgs e)
+        {
+            var frame = FindParentOfType<Frame>(this);
+            frame.GoBack();
+        }
     }
 }

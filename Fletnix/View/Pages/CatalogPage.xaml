@@ -35,7 +35,7 @@
             <TextBlock HorizontalAlignment="Left"
                        Foreground="LightGray"
                        FontSize="16"
-                       Text="{Binding Userprofile.ProfileName}" PreviewMouseDown="TextBlock_PreviewMouseDown"/>
+                       Text="{Binding Userprofile.ProfileName}" />
         </StackPanel>
 
         <ListView Grid.Row="1"

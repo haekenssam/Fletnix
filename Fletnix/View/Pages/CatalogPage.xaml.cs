@@ -47,9 +47,5 @@ namespace Fletnix.View.Pages
             new CreateCatalogItemWindow().ShowDialog();
         }
 
-        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            new CreateCatalogItemWindow().ShowDialog();
-        }
     }
 }

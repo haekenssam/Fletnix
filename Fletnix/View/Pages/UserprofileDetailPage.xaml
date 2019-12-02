@@ -51,7 +51,8 @@
             <Button x:Name="ButtonCancelChanges"
                     Content="Cancel"
                     Width="80"
-                    Margin="5"/>
+                    Margin="5"
+                    Click="ButtonCancelChanges_Click"/>
         </StackPanel>
     </Grid>
 </Page>
